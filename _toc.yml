@@ -1,0 +1,38 @@
+# Table of contents
+# Learn more at https://jupyterbook./customize/toc.html
+
+format: jb-book
+root: cover
+parts:
+- caption:
+  numbered: false
+  chapters:
+  - file: aboutme
+  - file: preface
+  - file: intro/intro
+- caption: Differential Geometry
+  numbered: 3
+  chapters:
+  - file: curved-spaces/intro
+    sections:
+    - file: curved-spaces/non-euclidean
+    - file: curved-spaces/embedded-model
+  - file: topology/intro
+    sections:
+    - file: topology/topology
+    - file: topology/functions
+  - file: manifolds/intro
+  - file: vector/intro
+    sections:
+    - file: vector/euclidean-vectors
+    - file: vector/vector-fields
+    - file: vector/tangent-vectors
+  - file: forms/intro
+    sections:
+    - file: forms/1-forms
+    - file: forms/pairing
+    - file: forms/cotangent-vectors
+  - file:  pushpull/intro
+    sections:
+    - file: pushpull/pull-function
+    - file: pushpull/push-vector
