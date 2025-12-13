@@ -32,6 +32,7 @@ parts:
     - file: forms/1-forms
     - file: forms/pairing
     - file: forms/cotangent-vectors
+    - file: forms/p-forms
   - file:  pushpull/intro
     sections:
     - file: pushpull/pull-function
