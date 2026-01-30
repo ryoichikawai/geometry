@@ -19,13 +19,15 @@ _Neighborhood_ is a mathematical concept closely related to the open sets.
 ```{prf:definition}
 :label: neighborhood-as-interval-in-R
 
-A set $𝑁 \in \mathbb{R}$ is called a neighborhood of $x \in \mathbb{R}$ if there exists  $\epsilon > 0$ such that
+A set $𝑁 \subseteq \mathbb{R}$ is called a neighborhood of $x \in \mathbb{R}$ if there exists a real number $\epsilon > 0$ such that
 
 $$
 (x-\epsilon, x+\epsilon) \subseteq N
 $$
 ```
-Knowing the definition of open intervals and neighborhoods, we can describe open sets with the neighborhoods.
+
+Knowing the definition of open intervals and neighborhood, we can describe open sets with the neighborhoods.
+
 
 ```{prf:proposition}
 :label: open-interval-in-R-by-neighborhood
@@ -35,12 +37,16 @@ An interval $(a,b) \in \mathbb{R}$ is open if and only if for each $x \in (a,b)$
 ```
 In summary, we define open interval first and the, we define neighborhoods using the open interval.  At the end, we showed the relation between open intervals and neighborhoods.  This logical steps are important when we extend these mathematical concepts beyond $\mathbb{R}$.
 
-There is another approach in which we define neighborhoods first. Then, open interval is defined with the neighborhoods. We call it the neighborhood-first-approach and the previous approach the open-set-first approach.  In physics, the open-set-first approach is much more popular than the other and we as physicists follow this tradition.  When we read literature, in particular math books, we must be careful about these two approaches.  When you mix  them, you can be trapped in circular arguments.  For example, you will find the following definitions in literature.
+
+There is another approach in which we define neighborhoods first. Then, open interval is defined with neighborhoods. We call it the neighborhood-first-approach and the previous approach the open-set-first approach.  In physics, the open-set-first approach is much more popular than the other and we as physicists follow this tradition.  When we read literature, in particular math books, we must be careful about these two approaches.  When you mix  them, you can be trapped in circular arguments.  For example, you will find the following definitions in literature.
+
 
 * A set $U$ is open if every point in $U$ has a neighborhood contained in $U$.
 * A set $N$ is a neighborhood of $x \in X$ if it contains an open set $U$ such that $U$ contains $x$.
 
 The first statement defines open sets using neighborhoods. The second statement defines neighborhoods using open sets.  Nothing seems wrong with each statement.  However, if  these statements are simultaneously used,  the definitions of open sets and neighborhoods are circular.  The former is based on the neighborhood-first approach and the latter on the open-set-first approach.  We should not mix these approaches.
+
+The above definition is obviously using a coordinate system.  We want to develop a definition that does not depend on coordinate systems. 
 
 ## Topological space
 
@@ -79,7 +85,7 @@ Example.  For a finite set $X = \{a,b,c\}$,  several topologies can be defined. 
 
 Note that $\{ \emptyset, X, \{a\}, \{b\}\}$ is not a topology since $\{a\} \bigcup \{b\} = \{a,b\}$ is not included.  Similarly, $\{ \emptyset, X, \{a\}, \{a,b\},\{b,c\}\}$ is not a topology since $\{a,b\} \bigcap \{b,c\} = \{b\}$ is absent.
 
-Finite sets like the above example is useful for a demonstration of the concept of topology.  In physics, however, we are interested in topology of infinite sets.  Mathematically speaking, infinitely many topologies are possible. However, various physical conditions almost uniquely pick a particular topology.  Unfortunately, physicists never explicitly state it and implicitly assume a context-dependent topology, causing confusions among mathematically oriented students.  We shall be careful about it. 
+Finite sets like the above example is useful for a demonstration of the concept of topology.  In physics, however, we are interested in topology of infinite sets.  We will show an example of infinite topological space shortly.
 
 ### Neighborhoods
 
@@ -99,7 +105,10 @@ In brief, a neighborhood is a set containing an open set containing a given poin
 A subset $U \subseteq X$ is open if and only if every point $p \in U$ has a neighborhood contained in $U$. 
 ```
 
- With this proposition, we  can easily visualize the concept of open set.  The question is if this statement is consistent with the definition of open sets based on topology.  As warned ealier, be aware of circular arguments.  The proposition {prf:ref}`openset-by-neighborhood` is not the definition of open sets.  It follows from {prf:ref}`neighborhood` that if for every $p \in U$ has a neighborhood $N_p$ contained in $U$, there exists an open set $V_p $ such that $p \in V_p \subseteq N_p$.
+
+ With this proposition, we  can easily visualize the concept of open set.  The question is if this statement is consistent with the definition of open sets based on topology.  As warned earlier, be aware of circular argument.  The proposition {prf:ref}`openset-by-neighborhood` is not the definition of open sets.  It follows from {prf:ref}`topology`.
+
+If for every $p \in U$ has a neighborhood $N_p$ contained in $U$, there exists an open set $V_p $ such that $p \in V_p \subseteq N_p$.  Since $V_p$ is open, it must be an element of 
 
 ## The Euclidean Topology
 
