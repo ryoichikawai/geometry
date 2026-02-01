@@ -112,17 +112,14 @@ If for every $p \in U$ has a neighborhood $N_p$ contained in $U$, there exists a
 
 ## The Euclidean Topology
 
-Although we are already familiar with the Euclidean space, we want to redefine it as a topological space for consistency.   In many literature, $\mathbb{R}$ appears equivalent to the one-dimensional Euclidean space.  For higher dimensions, $\mathbb{R}^n$ is used.  However, $\mathbb{R}$ alone cannot be a topological space.  We need to define a topology on $\mathbb{R}$, which is called the Euclidean topology.  
+Although we are already familiar with the Euclidean space, we want to redefine it as a topological space for consistency.   In many literature, $\mathbb{R}$ appears equivalent to the one-dimensional Euclidean space.  For higher dimensions, $\mathbb{R}^n$ is used.  However, $\mathbb{R}$ alone cannot be a topological space.  We need to define a topology on $\mathbb{R}$, which is called the Euclidean topology. In this note, the EUclidean topological space is expressed as $ \mathbb{E}= (\mathbb{R},\mathcal{T}_E)$ whre $\mathcal{T}_E$ is the Euclidean topology.
 
 ```{prf:definition}
 :label: Euclidean-topology
 
 In a simple term, the Euclidean topology is the collection of all unions of open intervals $\{(a, b): a, \, b \in \mathbb{R}, \; a \lt b\}$ including $\mathbb{R} = (-\infty,\infty)$ and the empty set.  
 ```
-
-For a higher dimension, open intervals are replaced with open balls.  For $\mathbb{R}^2$,  the Euclidean topology is the collection of all unions of open disks $\{\langle x,y\rangle: (x-a)^2+(y-b)^2 < c^2, a,b,c \in \mathbb{R}\}$ and $\emptyset$.  Similarly for $\mathbb{R}^3$, we can use the collection of all unions of open balls.
-
-In many literature $\mathbb{R}$ is meant to be the Euclidean topological space without specifying the topology since it is the  topological space most commonly used in physics. The Euclidean topology is the smallest topology out of $\mathbb{R}$ that makes all linear functions, translations, and limits behave as expected and {prf:ref}`Euclidean-topology` guarantees that
+The Euclidean topology is the smallest topology out of $\mathbb{R}$ that makes all linear functions, translations, and limits behave as expected and {prf:ref}`Euclidean-topology` guarantees that
 
 * addition
 * multiplication
@@ -130,6 +127,8 @@ In many literature $\mathbb{R}$ is meant to be the Euclidean topological space w
 * derivatives
 * integrals
 
-are well defined and continuous.
+For a higher dimension, open intervals are replaced with open balls.  For $\mathbb{R}^2$,  the Euclidean topology is the collection of all unions of open disks $\{\langle x,y\rangle: (x-a)^2+(y-b)^2 < c^2, a,b,c \in \mathbb{R}\}$ and $\emptyset$.  Similarly for $\mathbb{R}^3$, we can use the collection of all unions of open balls.  The meaning of these expression becomes clear when the concept of metric is introduced in a later chapter.
 
-What topology on curved spaces guarantee the same mathematical structures?  That is the question the present lecture note tries to answer.
+As mentioned above, in many literature, $\mathbb{R}$ is meant to be the Euclidean topological space without specifying the topology since it is the  topological space most commonly used in physics and it is automatically  assumed.  Since mathematical physics courses don't mention it, the concept of topological space is overlooked. When phsyics is extended to curved spaces,r many physics students suffere from it.  Even worse, the topology is not specified in curved spaces as well in most literature since it is assumed to be obvious to everyone.  It was not obviouse to me at all. 
+
+What topology on curved spaces guarantee the same mathematical structures as the Euqclidean topology?  I hope we will find it out through this note.
