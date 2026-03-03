@@ -1,0 +1,576 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>5.1. 1-forms &#8212; Introduction to Topology and Manifolds for Physics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css?v=b4b7a797" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'forms/1-forms';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="5.2. Duarity paring" href="pairing.html" />
+    <link rel="prev" title="5. Differentials Forms" href="intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../cover.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/me-tiny.png" class="logo__image only-light" alt="Introduction to Topology and Manifolds for Physics - Home"/>
+    <script>document.write(`<img src="../_static/me-tiny.png" class="logo__image only-dark" alt="Introduction to Topology and Manifolds for Physics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../cover.html">
+                    Topology and Manifolds
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../aboutme.html">About Author</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preface.html">Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/intro.html">Introduction</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Differential Geometry</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../curved-spaces/intro.html">1. What are curved spaces?</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../curved-spaces/non-euclidean.html">1.1. Non-Euclidean spaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../curved-spaces/embedded-model.html">1.2. Embedded models</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../topology/intro.html">2. Topological Space</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../topology/topology.html">2.1. Topology and open sets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topology/functions.html">2.2. Continuous functions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../manifolds/intro.html">3. Smooth Manifolds</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../vector/intro.html">4. Vector Fields</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../vector/euclidean-vectors.html">4.1. Vectors in the Euclidean spaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vector/vector-fields.html">4.2. Vector fields in general manifolds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vector/tangent-vectors.html">4.3. Tangent vectors</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">5. Differentials Forms</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">5.1. 1-forms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pairing.html">5.2. Duarity paring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cotangent-vectors.html">5.3. Cotangent Vectors</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pushpull/intro.html">6. Pullback and pushfoward</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pushpull/pull-function.html">6.1. Pullback of Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pushpull/push-vector.html">6.2. Pushforward of tangent vectors</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/forms/1-forms.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>1-forms</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-and-differential">5.1.1. Gradient and differential</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differential-on-a-chart">5.1.2. Differential on a chart</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sec-1-form">5.1.3. 1-forms</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="forms">
+<span id="sec-1-forms"></span><h1><span class="section-number">5.1. </span>1-forms<a class="headerlink" href="#forms" title="Link to this heading">#</a></h1>
+<section id="gradient-and-differential">
+<span id="sec-gradient"></span><h2><span class="section-number">5.1.1. </span>Gradient and differential<a class="headerlink" href="#gradient-and-differential" title="Link to this heading">#</a></h2>
+<p>Gradient of scalar functions is an essential operation in vector calculus.  In the Euclidean space, it is defined as</p>
+<div class="math notranslate nohighlight" id="equation-eq-usual-gradient">
+<span class="eqno">(5.1)<a class="headerlink" href="#equation-eq-usual-gradient" title="Link to this equation">#</a></span>\[\nabla f = \partial_x f\, \mathbb{e}_x + \partial_y f\, \mathbb{e}_y + \partial_z f\, \mathbb{e}_z\]</div>
+<p>In math or physics course, we learned that the the gradient of scalar function is a “vector” field.  We want to generalize it to curved spaces or general manifolds.  After deep thought, mathematicians and theoretical physicists reached a conclusion that the gradient is not a vector field but something else.  You will see why it is not a vector when we investigate the properties of various physical quantities in later chapters.</p>
+<p>For a smooth function <span class="math notranslate nohighlight">\(f\)</span> on manifold <span class="math notranslate nohighlight">\(M\)</span>, mathematicians introduced a map <span class="math notranslate nohighlight">\(df: \text{Vect}(M) \rightarrow \mathbb{C}^\infty (M)\)</span>.  This expression is a bit confusing.  You can think of <span class="math notranslate nohighlight">\(d\)</span> as an operator acting on <span class="math notranslate nohighlight">\(f\)</span> and then <span class="math notranslate nohighlight">\(d\)</span> and <span class="math notranslate nohighlight">\(f\)</span>  jointly form a map <span class="math notranslate nohighlight">\(df\)</span>.  The map takes a vector field <span class="math notranslate nohighlight">\(v \in \text{Vect}(M)\)</span> and outputs a  smooth function <span class="math notranslate nohighlight">\(v(f)\)</span>:</p>
+<div class="math notranslate nohighlight" id="equation-eq-differential-on-manifold">
+<span class="eqno">(5.2)<a class="headerlink" href="#equation-eq-differential-on-manifold" title="Link to this equation">#</a></span>\[df(v) = v(f)\]</div>
+<p>which means that <span class="math notranslate nohighlight">\(df(v)\)</span> and <span class="math notranslate nohighlight">\(v(f)\)</span> outputs the same function.  Then, why do we need two maps?  While the vector field takes a function as an input, <span class="math notranslate nohighlight">\(df\)</span> takes a vector field as an input.  In other words, in <span class="math notranslate nohighlight">\(v(f)\)</span>, <span class="math notranslate nohighlight">\(v\)</span> is specifically given and <span class="math notranslate nohighlight">\(f\)</span> is a “variable” and In <span class="math notranslate nohighlight">\(df\)</span>, <span class="math notranslate nohighlight">\(f\)</span> is specifically given and <span class="math notranslate nohighlight">\(v\)</span> is a “variable”.  You will have a better  understanding by working on a chart. See <a class="reference internal" href="#sec-differential-on-a-chart"><span class="std std-numref">Section 5.1.2</span></a>.</p>
+<p>In order to guarantee that the gradient does not depend on the choice of a vector field, we require that <span class="math notranslate nohighlight">\(df\)</span> satisfies  te following linearity conditions:   for <span class="math notranslate nohighlight">\(v, w \in \text{Vect}(M)\)</span> and <span class="math notranslate nohighlight">\(g \in \mathbb{C}^\infty(M)\)</span></p>
+<div class="math notranslate nohighlight" id="equation-eq-differential-linearity">
+<span class="eqno">(5.3)<a class="headerlink" href="#equation-eq-differential-linearity" title="Link to this equation">#</a></span>\[df(v+w) = df(v) + df(w), \qquad df(gv) = g df(v).\]</div>
+<p>Do not get confused with the addition of two differentials  There is only one differential <span class="math notranslate nohighlight">\(df\)</span> in the above relations.</p>
+<p><span class="math notranslate nohighlight">\(df\)</span> is called the <code class="docutils literal notranslate"><span class="pre">differential</span></code> of <span class="math notranslate nohighlight">\(f\)</span>, or the <code class="docutils literal notranslate"><span class="pre">exterior</span> <span class="pre">derivative</span></code> of <span class="math notranslate nohighlight">\(f\)</span>.  It is an example of <code class="docutils literal notranslate"><span class="pre">1-form</span></code> which we introduce below.</p>
+</section>
+<section id="differential-on-a-chart">
+<span id="sec-differential-on-a-chart"></span><h2><span class="section-number">5.1.2. </span>Differential on a chart<a class="headerlink" href="#differential-on-a-chart" title="Link to this heading">#</a></h2>
+<p>Working on a chart provides with a better understanding of the differential. Evaluate it on <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> through a chart <span class="math notranslate nohighlight">\(\phi: U \in M \rightarrow \mathbb{R}^n\)</span>,    the differential is expressed as</p>
+<div class="math notranslate nohighlight" id="equation-eq-differential-on-chart">
+<span class="eqno">(5.4)<a class="headerlink" href="#equation-eq-differential-on-chart" title="Link to this equation">#</a></span>\[df(v) = v(f) = v^\mu(x) \partial_\mu f(x)\]</div>
+<p>This is nothing but a directional derivative.  Are <span class="math notranslate nohighlight">\(v(f)\)</span>  and <span class="math notranslate nohighlight">\(df(v)\)</span> the same thing?  They are not.  The vector field <span class="math notranslate nohighlight">\(v(f)\)</span> tries to find the coordinate expression of the vector field <span class="math notranslate nohighlight">\(v_\mu(x)\)</span>.  Any function can be  used and <span class="math notranslate nohighlight">\(v^\mu(x)\)</span> is independent from the choice of <span class="math notranslate nohighlight">\(f\)</span>.  On the other hand,  <span class="math notranslate nohighlight">\(df(v)\)</span> tries to evaluate the gradient of a given function <span class="math notranslate nohighlight">\(f\)</span> with help of a vector field <span class="math notranslate nohighlight">\(v^\mu(x)\)</span>.  Any vector field can be used and the gradient is independent of  a choice of vector field <span class="math notranslate nohighlight">\(v\)</span>.</p>
+<p>The linearity conditions guarantees it.</p>
+<div class="math notranslate nohighlight" id="equation-eq-differential-linearity1">
+<span class="eqno">(5.5)<a class="headerlink" href="#equation-eq-differential-linearity1" title="Link to this equation">#</a></span>\[df(v+w) = (v+w)^\mu (\partial_\mu f)_{v+w} = (v^\mu + w^\mu) (\partial_\mu f)_{v+w}\]</div>
+<p>where <span class="math notranslate nohighlight">\((\partial_\mu f)_{v+w}\)</span> indicates the gradient is evaluated with <span class="math notranslate nohighlight">\(v+w\)</span>.</p>
+<div class="math notranslate nohighlight" id="equation-eq-differential-linearity2">
+<span class="eqno">(5.6)<a class="headerlink" href="#equation-eq-differential-linearity2" title="Link to this equation">#</a></span>\[df(v)+df(w) = v^\mu (\partial_\mu f)_v + w^\mu (\partial_\mu f)_w\]</div>
+<p>Since we can chose any <span class="math notranslate nohighlight">\(v\)</span> and <span class="math notranslate nohighlight">\(w\)</span>, we conclude  that <span class="math notranslate nohighlight">\((\partial_\mu f)_{v+w} = (\partial_\mu f)_v = (\partial_\mu f)_w\)</span>, indicating that the gradient does not depend on the choice of a vector field.</p>
+<p>Working on a chart,  the above definition of <span class="math notranslate nohighlight">\(df\)</span>  agrees with the total differential of function,</p>
+<div class="math notranslate nohighlight" id="equation-eq-total-differential">
+<span class="eqno">(5.7)<a class="headerlink" href="#equation-eq-total-differential" title="Link to this equation">#</a></span>\[df = \partial_\mu f dx^\mu\]</div>
+<p>which we learned in a calculus curse.</p>
+<div class="proof admonition" id="proof">
+<p>Proof. The differential  of <span class="math notranslate nohighlight">\(x^\mu\)</span> is calculated as</p>
+<div class="math notranslate nohighlight">
+\[d x^\mu (v)  = v(x^\mu) = v^\nu \partial_\nu x^\mu = v^\nu \delta^\mu_\nu = v^\mu\]</div>
+<p>Substituting it to the differential of <span class="math notranslate nohighlight">\(f\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[d x^\mu (v)  = v(x^\mu) = v^\nu \partial_\nu x^\mu = v^\nu \delta^\mu_\nu = v^\mu\]</div>
+<p>Since this equality holds for any <span class="math notranslate nohighlight">\(v\)</span>, we obtain <a class="reference internal" href="#equation-eq-total-differential">(5.7)</a></p>
+</div>
+<p>It is natural to call <span class="math notranslate nohighlight">\(df\)</span> on <span class="math notranslate nohighlight">\(M\)</span> the differential of <span class="math notranslate nohighlight">\(f\)</span>.</p>
+<p>Recall that <span class="math notranslate nohighlight">\(\partial_\nu\)</span> is a basis of vector fields in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>.  That means <span class="math notranslate nohighlight">\(\partial_\nu\)</span> is a vector filed and can be fed to the differential.</p>
+<div class="math notranslate nohighlight" id="equation-eq-omega-v-orthogonality">
+<span class="eqno">(5.8)<a class="headerlink" href="#equation-eq-omega-v-orthogonality" title="Link to this equation">#</a></span>\[dx ^\mu(\partial_\nu) = \partial_\nu(x^\mu) = \delta^\mu_\nu\]</div>
+<p>How can we find the partial derivative <span class="math notranslate nohighlight">\(\partial_\mu f\)</span>?   In the directional derivative, the vector field <span class="math notranslate nohighlight">\(v\)</span> specifies the direction of the derivative.  If we want to know the derivative along a coordinate axis, the direction can be specified with a basis vector <span class="math notranslate nohighlight">\(\partial_\mu\)</span>.  So feed the vector field <span class="math notranslate nohighlight">\(v = \partial_\mu\)</span> to the differential</p>
+<div class="math notranslate nohighlight" id="equation-eq-partial-derivative">
+<span class="eqno">(5.9)<a class="headerlink" href="#equation-eq-partial-derivative" title="Link to this equation">#</a></span>\[df(\partial_\mu) = \partial_\mu f\]</div>
+<p>Now, we are sure that <span class="math notranslate nohighlight">\(df\)</span> generates the gradient of <span class="math notranslate nohighlight">\(f\)</span>.</p>
+</section>
+<section id="sec-1-form">
+<span id="id1"></span><h2><span class="section-number">5.1.3. </span>1-forms<a class="headerlink" href="#sec-1-form" title="Link to this heading">#</a></h2>
+<p>We generalize the above idea.  Consider a map <span class="math notranslate nohighlight">\(\omega: \text{Vect}(M) \rightarrow \mathbb{C}^\infty(M)\)</span> such that for <span class="math notranslate nohighlight">\(v, w \in \text{Vect}(M)\)</span> and <span class="math notranslate nohighlight">\(g \in \mathbb{C}^\infty(M)\)</span></p>
+<div class="math notranslate nohighlight" id="equation-eq-1-form-linearity">
+<span class="eqno">(5.10)<a class="headerlink" href="#equation-eq-1-form-linearity" title="Link to this equation">#</a></span>\[\omega(v+w) = \omega(v) + \omega(w), \qquad \omega(gv) = g \omega(v)\]</div>
+<p>We call <span class="math notranslate nohighlight">\(\omega\)</span> a <code class="docutils literal notranslate"><span class="pre">1-form</span></code> and the set of all 1-forms on <span class="math notranslate nohighlight">\(M\)</span> is denoted as <span class="math notranslate nohighlight">\(\Omega^1(M)\)</span>. The differential <span class="math notranslate nohighlight">\(df\)</span> is clearly a 1-form.   The addition and scalar multiplication can be defined for <span class="math notranslate nohighlight">\(\omega, \mu \in \Omega^1(M)\)</span>, <span class="math notranslate nohighlight">\(v, w \in \text{Vect}(M)\)</span> and <span class="math notranslate nohighlight">\(g \in \mathbb{C}^\infty\)</span>,</p>
+<div class="math notranslate nohighlight" id="equation-eq-1-form-addition">
+<span class="eqno">(5.11)<a class="headerlink" href="#equation-eq-1-form-addition" title="Link to this equation">#</a></span>\[(\omega + \mu) (v) = \omega(v) + \mu(v), \qquad (g\omega)(v) = g \omega(v)\]</div>
+<p>Since the addition and the scalar multiplication obey the axioms of vector, 1-forms behave like vectors.  Because of this,  some people call 1-form <code class="docutils literal notranslate"><span class="pre">covector</span></code> or <code class="docutils literal notranslate"><span class="pre">dual</span> <span class="pre">vector</span></code>.  Although 1-forms are indeed dual to vector fields, they have some distinct properties different from vector fields do not have.  Therefore, we shall call them 1-forms.</p>
+<p>Notice that no function <span class="math notranslate nohighlight">\(f\)</span> is used to define the 1-form.  Hence, <span class="math notranslate nohighlight">\(\omega\)</span> does not look like a gradient anymore.  However, it is just a generalization of gradient.  Recall that the vector field is originally defined as <span class="math notranslate nohighlight">\(v(f) = V^\mu \partial_\mu f\)</span> but we simply write the field as <span class="math notranslate nohighlight">\(v = V^\mu \partial_\mu\)</span> without <span class="math notranslate nohighlight">\(f\)</span>.  Then we interpreted <span class="math notranslate nohighlight">\(\partial_\mu\)</span> as the basis of the vector field.  It does make a sense since a vector field should not depend on <span class="math notranslate nohighlight">\(f\)</span>.  We are trying to do the same for 1-form.  You can think that we are trying to find a gradient operator like <span class="math notranslate nohighlight">\(\nabla\)</span> on <span class="math notranslate nohighlight">\(M\)</span>.  When it acts on <span class="math notranslate nohighlight">\(f\)</span>, you get a gradient.</p>
+<p>By analogy from <a class="reference internal" href="#equation-eq-partial-derivative">(5.9)</a>,  we define a component of 1-form by</p>
+<div class="math notranslate nohighlight" id="equation-eq-1-form-component">
+<span class="eqno">(5.12)<a class="headerlink" href="#equation-eq-1-form-component" title="Link to this equation">#</a></span>\[\omega_\mu = \omega(\partial_\mu).\]</div>
+<p>and based on <a class="reference internal" href="#equation-eq-total-differential">(5.7)</a>,</p>
+<div class="math notranslate nohighlight" id="equation-eq-1-form-decomposition">
+<span class="eqno">(5.13)<a class="headerlink" href="#equation-eq-1-form-decomposition" title="Link to this equation">#</a></span>\[\omega = \omega_\mu dx^\mu.\]</div>
+<p>If <span class="math notranslate nohighlight">\(\omega = df\)</span>, then we recover <a class="reference internal" href="#equation-eq-total-differential">(5.7)</a> and <a class="reference internal" href="#equation-eq-partial-derivative">(5.9)</a>.   Equation <a class="reference internal" href="#equation-eq-1-form-decomposition">(5.13)</a> suggests that <span class="math notranslate nohighlight">\(\{ dx^\mu\}\)</span> is a basis set spanning of 1-forms on <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> much like <span class="math notranslate nohighlight">\(\partial_\mu\)</span> forms a basis set for vector fields.  Again, 1-forms look like vectors.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./forms"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">5. </span>Differentials Forms</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="pairing.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">5.2. </span>Duarity paring</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-and-differential">5.1.1. Gradient and differential</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differential-on-a-chart">5.1.2. Differential on a chart</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sec-1-form">5.1.3. 1-forms</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Ryoichi Kawai
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025 Ryoichi Kawai. All rights reserved..
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

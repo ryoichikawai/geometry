@@ -1,0 +1,2 @@
+# Locally smooth functions
+

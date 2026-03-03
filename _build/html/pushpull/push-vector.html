@@ -1,0 +1,494 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>6.2. Pushforward of tangent vectors &#8212; Introduction to Topology and Manifolds for Physics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css?v=b4b7a797" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'pushpull/push-vector';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="6.1. Pullback of Functions" href="pull-function.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../cover.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/me-tiny.png" class="logo__image only-light" alt="Introduction to Topology and Manifolds for Physics - Home"/>
+    <script>document.write(`<img src="../_static/me-tiny.png" class="logo__image only-dark" alt="Introduction to Topology and Manifolds for Physics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../cover.html">
+                    Topology and Manifolds
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../aboutme.html">About Author</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preface.html">Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/intro.html">Introduction</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Differential Geometry</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../curved-spaces/intro.html">1. What are curved spaces?</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../curved-spaces/non-euclidean.html">1.1. Non-Euclidean spaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../curved-spaces/embedded-model.html">1.2. Embedded models</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../topology/intro.html">2. Topological Space</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../topology/topology.html">2.1. Topology and open sets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topology/functions.html">2.2. Continuous functions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../manifolds/intro.html">3. Smooth Manifolds</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../vector/intro.html">4. Vector Fields</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../vector/euclidean-vectors.html">4.1. Vectors in the Euclidean spaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vector/vector-fields.html">4.2. Vector fields in general manifolds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vector/tangent-vectors.html">4.3. Tangent vectors</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../forms/intro.html">5. Differentials Forms</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../forms/1-forms.html">5.1. 1-forms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forms/pairing.html">5.2. Duarity paring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forms/cotangent-vectors.html">5.3. Cotangent Vectors</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">6. Pullback and pushfoward</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="pull-function.html">6.1. Pullback of Functions</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">6.2. Pushforward of tangent vectors</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/pushpull/push-vector.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Pushforward of tangent vectors</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="pushforward-of-tangent-vectors">
+<span id="sec-pushforward-vector"></span><h1><span class="section-number">6.2. </span>Pushforward of tangent vectors<a class="headerlink" href="#pushforward-of-tangent-vectors" title="Link to this heading">#</a></h1>
+<p>We now try  to transport or transfer tangent vectors from one manifold to another.  First, we need to define  when a vector on a manifold is equivalent to a vector on another manifold.</p>
+<p>Consider a tangent vector at <span class="math notranslate nohighlight">\(p\)</span> on a manifold <span class="math notranslate nohighlight">\(M\)</span> which is denoted as <span class="math notranslate nohighlight">\(v_M \in T_p M\)</span> and a tangent vector at <span class="math notranslate nohighlight">\(q\)</span> on a different manifold <span class="math notranslate nohighlight">\(N\)</span> denoted <span class="math notranslate nohighlight">\(v_N \in T_q N\)</span>.  When can we say that the two tangent vectors are equivalent?  To answer the question, we need to go back to the definition of vector.  The vector is a map <span class="math notranslate nohighlight">\(v_M: \mathbb{C}^\infty(M) \rightarrow \mathbb{C}^\infty(M)\)</span>.  That means a vector takes a function and returns another function.  WE write is as <span class="math notranslate nohighlight">\(v_M(f_M)\)</span> and similarly <span class="math notranslate nohighlight">\(v_N(f_N)\)</span>.  To evaluate its value, we need a pint and a function on the manifold. To shows the equivalence of the two vectors, we need to have equivalent points and equivalent functions.</p>
+<ol class="arabic simple">
+<li><p>The two points <span class="math notranslate nohighlight">\(p\)</span> and <span class="math notranslate nohighlight">\(q\)</span> are connected by a map <span class="math notranslate nohighlight">\(\phi: M \rightarrow N\)</span>.  That means <span class="math notranslate nohighlight">\(q = \phi(p)\)</span>.</p></li>
+<li><p>The two functions <span class="math notranslate nohighlight">\(f_M\)</span> and <span class="math notranslate nohighlight">\(f_N\)</span> are connected by pullback as <span class="math notranslate nohighlight">\(f_M = \phi^* f_N\)</span>.</p></li>
+<li><p>The two vectors <span class="math notranslate nohighlight">\(v_M(f_M)\)</span> and <span class="math notranslate nohighlight">\(v_N(f_N)\)</span> have the same value when the points are functions are connected as described above.  This means <span class="math notranslate nohighlight">\(v_N(f_N) = v_M (\phi^*f_N)\)</span>.</p></li>
+</ol>
+<p>The last equality suggests that we are able to  express <span class="math notranslate nohighlight">\(v_N\)</span> in terms of <span class="math notranslate nohighlight">\(v_M\)</span>, indicating that we transported the vector from <span class="math notranslate nohighlight">\(M\)</span> to <span class="math notranslate nohighlight">\(N\)</span>.  Notice that the direction of transportation is the same as the direction of the map <span class="math notranslate nohighlight">\(\phi\)</span>.  That means it is opposite to the direction of function transport.  We say that the vector is pushed forward from <span class="math notranslate nohighlight">\(M\)</span> to <span class="math notranslate nohighlight">\(N\)</span>. To express it mathematically, we introduce a symbol <span class="math notranslate nohighlight">\(\phi_*\)</span> as</p>
+<div class="math notranslate nohighlight">
+\[
+v_N (f_N) = \phi_* v_M (f_N) = v_M (\phi^*f_N)
+\]</div>
+<p>The transportation by <span class="math notranslate nohighlight">\(\phi_*\)</span> is called pushforward. (Notice the location of “*”.)  Any mathematical object that are transported by pushforward is said to be covariant.</p>
+<p>We can see the details of the transportation by going back to the directional derivative or derivation of curves.</p>
+<p>We use the same map <span class="math notranslate nohighlight">\(\phi\)</span> from <span class="math notranslate nohighlight">\(M\)</span> to <span class="math notranslate nohighlight">\(N\)</span>.  Suppose that we have a tangent vector <span class="math notranslate nohighlight">\(v_M \in T_pM\)</span>.  We want to find the same tangent vector on <span class="math notranslate nohighlight">\(N\)</span>, that is <span class="math notranslate nohighlight">\(v_N \in T_q N\)</span> where <span class="math notranslate nohighlight">\(q=\phi(p)\)</span>.  The “same” tangent vector means that <span class="math notranslate nohighlight">\(v_M\)</span> and <span class="math notranslate nohighlight">\(v_N\)</span> have the same components <span class="math notranslate nohighlight">\(v^\mu\)</span>.  More specifically, for functions <span class="math notranslate nohighlight">\(f_M \in \mathbb{C}^\infty(M)\)</span> and <span class="math notranslate nohighlight">\(f_N \in \mathbb{C}^\infty(N)\)</span>, we want to make the following two tangent vectors equivalent.
+$<span class="math notranslate nohighlight">\(
+v_M(f_M) = v^\mu \partial_\mu f_M\Bigg|_p, \qquad v_N(f_N) = v^\mu \partial_\mu f_N \Bigg|_q
+\)</span>$</p>
+<p>Notice that both tangent vectors have the same component <span class="math notranslate nohighlight">\(v^\mu\)</span>.    The difference between two tangent vectors is the functions.   In other words, we need to transfer the function.  We learn that functions can be only pulled back.  So, <span class="math notranslate nohighlight">\(f_M = \phi^* f_N\)</span>.  Then, we have <span class="math notranslate nohighlight">\(v_N(f_N) = v_M(\phi^* f_N)\)</span> .  Then, we say that <span class="math notranslate nohighlight">\(v_M\)</span> is transfered from <span class="math notranslate nohighlight">\(M\)</span> to <span class="math notranslate nohighlight">\(N\)</span>.  This operation is called pushforward and expressed with symbol <span class="math notranslate nohighlight">\(\phi_*\)</span> (pay attention to the location of “*”) as</p>
+<div class="math notranslate nohighlight">
+\[
+\phi_* v_M (f_N) = v_M(\phi^* f_N)
+\]</div>
+<p>The left hand side states that the tangent vector <span class="math notranslate nohighlight">\(v\)</span> on <span class="math notranslate nohighlight">\(M\)</span> is pushed forward to <span class="math notranslate nohighlight">\(N\)</span> and acts on function <span class="math notranslate nohighlight">\(f\)</span> on <span class="math notranslate nohighlight">\(N\)</span>.  The right hand side tells that the tangent vector <span class="math notranslate nohighlight">\(v\)</span> on <span class="math notranslate nohighlight">\(M\)</span> acts on a function pulled back from <span class="math notranslate nohighlight">\(N\)</span>.  The two sides is doing exactly describing the same  tangent vector since they produces the same components.</p>
+<p>The pushforward operation can be obtained directly by calculating the derivative of a parametric curve. COnsider a curve <span class="math notranslate nohighlight">\(\gamma(t)\)</span> on <span class="math notranslate nohighlight">\(M\)</span>.   Its derivative <span class="math notranslate nohighlight">\(\frac{d}{dt}\gamma(t)\)</span> is a tangent vector.  The corresponding curve on <span class="math notranslate nohighlight">\(N\)</span> is <span class="math notranslate nohighlight">\(\phi \circ \gamma (t)\)</span> and thus the corresponding tangent vector is <span class="math notranslate nohighlight">\(\frac{d}{dt} \phi \circ \gamma(t)\)</span>.  We shall express it as  <span class="math notranslate nohighlight">\(\phi_* \frac{d}{dt} \gamma(t) \equiv \frac{d}{dt} \phi \circ \gamma(t)\)</span>, which is   pushforward of the tangent vector. It just tells that moving the tangent vector from <span class="math notranslate nohighlight">\(M\)</span> to <span class="math notranslate nohighlight">\(N\)</span> is done by mapping the curve from <span class="math notranslate nohighlight">\(M\)</span> to <span class="math notranslate nohighlight">\(N\)</span> using <span class="math notranslate nohighlight">\(\phi\)</span>.</p>
+<p>In summary, to transfer a tangent vector from one manifold <span class="math notranslate nohighlight">\(M\)</span> to another <span class="math notranslate nohighlight">\(N\)</span>, we must transfer the curve from <span class="math notranslate nohighlight">\(M\)</span> to <span class="math notranslate nohighlight">\(N\)</span>.  Hence, the direction of tangent vector transfer is the same as the direction of map <span class="math notranslate nohighlight">\(\phi\)</span>.  WHen an object is transfered in the same direction as the map is said to be covariant.</p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./pushpull"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="pull-function.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">6.1. </span>Pullback of Functions</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Ryoichi Kawai
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025 Ryoichi Kawai. All rights reserved..
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

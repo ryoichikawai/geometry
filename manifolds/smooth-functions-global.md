@@ -1,0 +1,2 @@
+# Globally smooth functions
+

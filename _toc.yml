@@ -22,6 +22,11 @@ parts:
     - file: topology/topology
     - file: topology/functions
   - file: manifolds/intro
+    sections:
+    - file: manifolds/charts
+    - file: manifolds/pullback
+    - file: manifolds/smooth-functions-local
+    - file: manifolds/smooth-functions-global
   - file: vector/intro
     sections:
     - file: vector/euclidean-vectors
@@ -32,7 +37,7 @@ parts:
     - file: forms/1-forms
     - file: forms/pairing
     - file: forms/cotangent-vectors
-    - file: forms/p-forms
+#    - file: forms/p-forms
   - file:  pushpull/intro
     sections:
     - file: pushpull/pull-function

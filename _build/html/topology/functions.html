@@ -1,0 +1,653 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>2.2. Continuous functions &#8212; Introduction to Topology and Manifolds for Physics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css?v=b4b7a797" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'topology/functions';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3. Smooth Manifolds" href="../manifolds/intro.html" />
+    <link rel="prev" title="2.1. Topology and open sets" href="topology.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../cover.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/me-tiny.png" class="logo__image only-light" alt="Introduction to Topology and Manifolds for Physics - Home"/>
+    <script>document.write(`<img src="../_static/me-tiny.png" class="logo__image only-dark" alt="Introduction to Topology and Manifolds for Physics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../cover.html">
+                    Topology and Manifolds
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../aboutme.html">About Author</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preface.html">Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/intro.html">Introduction</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Differential Geometry</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../curved-spaces/intro.html">1. What are curved spaces?</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../curved-spaces/non-euclidean.html">1.1. Non-Euclidean spaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../curved-spaces/embedded-model.html">1.2. Embedded models</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">2. Topological Space</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="topology.html">2.1. Topology and open sets</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.2. Continuous functions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../manifolds/intro.html">3. Smooth Manifolds</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../manifolds/charts.html">3.1. Charts and local coordinates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manifolds/pullback.html">3.2. Pullback</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manifolds/smooth-functions-local.html">3.3. Locally smooth functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manifolds/smooth-functions-global.html">3.4. Globally smooth functions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../vector/intro.html">4. Vector Fields</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../vector/euclidean-vectors.html">4.1. Vectors in the Euclidean spaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vector/vector-fields.html">4.2. Vector fields in general manifolds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vector/tangent-vectors.html">4.3. Tangent vectors</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../forms/intro.html">5. Differentials Forms</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../forms/1-forms.html">5.1. 1-forms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forms/pairing.html">5.2. Duarity paring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forms/cotangent-vectors.html">5.3. Cotangent Vectors</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pushpull/intro.html">6. Pullback and pushfoward</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pushpull/pull-function.html">6.1. Pullback of Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pushpull/push-vector.html">6.2. Pushforward of tangent vectors</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/topology/functions.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Continuous functions</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#continuous-functions-on-the-euclidean-space">2.2.1. Continuous functions on the Euclidean space</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-continuous-maps">2.2.2. General continuous maps</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#smooth-maps">2.2.3. Smooth maps</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mathbb-c-infty-mathcal-m-algebra"><span class="math notranslate nohighlight">\(\mathbb{C}^\infty (\mathcal{M})\)</span> Algebra</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="continuous-functions">
+<h1><span class="section-number">2.2. </span>Continuous functions<a class="headerlink" href="#continuous-functions" title="Link to this heading">#</a></h1>
+<section id="continuous-functions-on-the-euclidean-space">
+<h2><span class="section-number">2.2.1. </span>Continuous functions on the Euclidean space<a class="headerlink" href="#continuous-functions-on-the-euclidean-space" title="Link to this heading">#</a></h2>
+<p>In physics many physical quantities are a real function of position <span class="math notranslate nohighlight">\(x\)</span> such as a temperature profile <span class="math notranslate nohighlight">\(T(x)\)</span> or a mass density <span class="math notranslate nohighlight">\(\rho(x)\)</span>.   A real function on the one-dimensional Euclidean space, <span class="math notranslate nohighlight">\(f(x)\)</span>, is a map from an Euclidean space to  another Euclidean space.  It is expressed as <span class="math notranslate nohighlight">\(f: \mathbb{R} \rightarrow \mathbb{R}\)</span>.  It may be a bad practice but we  commonly use symbol <span class="math notranslate nohighlight">\(\mathbb{R}\)</span> for the Euclidean topological space.  The necessity of the topology becomes clear below.</p>
+<p>In the physical world, these functions are expected to be continuous  In a math class, we learned that the function <span class="math notranslate nohighlight">\(f(x)\)</span> is continuous at a point <span class="math notranslate nohighlight">\(c \in \mathbb{R}\)</span>  if  for all <span class="math notranslate nohighlight">\(\epsilon &gt; 0\)</span>, there exists <span class="math notranslate nohighlight">\(\delta &gt; 0\)</span> such that for all <span class="math notranslate nohighlight">\(x \in \mathbb{R}\)</span> ,   <span class="math notranslate nohighlight">\(|x-c|&lt;\delta\)</span>  implies <span class="math notranslate nohighlight">\(|f(x)-f(c)| &lt; \epsilon\)</span>.   Our task is to extend the concept of continuous function to coordinate free topological spaces where subtraction and absolute value are not available.</p>
+<p>Recall that the topology is a collection of open sets and for the Euclidean topology corresponding open sets are the collection of all open intervals.  Can we define continuous functions using open intervals?  If so, we can extend it to general topological space. In fact, the following definition  is equivalent to the above definition. A function <span class="math notranslate nohighlight">\(f(x)\)</span> is continuous at  <span class="math notranslate nohighlight">\(c \in \mathbb{R}\)</span>  if and only if for each interval  <span class="math notranslate nohighlight">\((f (c) − ε, f (c) + ε)\)</span>, there exists <span class="math notranslate nohighlight">\(δ &gt; 0\)</span> such that <span class="math notranslate nohighlight">\(f(x) \in (f(c)-\epsilon, f(c)+\epsilon)\)</span> for all <span class="math notranslate nohighlight">\(x \in (c-\delta, c+\delta)\)</span>.</p>
+<p>Next we eliminate subtraction in the open intervals. Replace open interval  <span class="math notranslate nohighlight">\((f (c) − ε, f (c) + ε)\)</span> with an open set <span class="math notranslate nohighlight">\(U \in \mathbb{R}\)</span> containing <span class="math notranslate nohighlight">\(f(c)\)</span> and another open interval <span class="math notranslate nohighlight">\((c-\delta, c+\delta)\)</span> with <span class="math notranslate nohighlight">\(V \in \mathbb{R}\)</span> containing <span class="math notranslate nohighlight">\(c\)</span>.  Then, the above statement is equivalent to the following: A map <span class="math notranslate nohighlight">\(f:\mathbb{R} \rightarrow \mathbb{R}\)</span> is continuous at  <span class="math notranslate nohighlight">\(c \in \mathbb{R}\)</span>  if and only if for each open set <span class="math notranslate nohighlight">\(U \in \mathbb {R}\)</span> containing <span class="math notranslate nohighlight">\(f(c)\)</span>, there exists an open set <span class="math notranslate nohighlight">\(V \in \mathbb{R}\)</span> containing <span class="math notranslate nohighlight">\(c\)</span> such that <span class="math notranslate nohighlight">\(f(V) \subseteq U\)</span>.  Since open sets are used in both source and target spaces,  strictly speaking, we need to specify a topology for both source and target.  If the topology is not big enough (recall that we can construct many different topologies), then we cannot construct a continuous function. If we require a topological space to allow continuous functions, the choice of a topology is limited and Euclidean topology is  minimally required to support continuous functions.</p>
+<p>We can further simplify the definition.  A map <span class="math notranslate nohighlight">\(f:\mathbb{R} \rightarrow \mathbb{R}\)</span> is continuous if for any open set <span class="math notranslate nohighlight">\(U \in \mathbb{R}\)</span> the preimage <span class="math notranslate nohighlight">\(f^{-1}(U) \subseteq X\)</span> is open where the preimage is defined by</p>
+<div class="math notranslate nohighlight" id="equation-eq-preimage-on-r">
+<span class="eqno">(2.1)<a class="headerlink" href="#equation-eq-preimage-on-r" title="Link to this equation">#</a></span>\[f^{-1}(U) =   \{x \in \mathbb{R}: f(x) \in U\} \]</div>
+<p>This is amazingly simpler than the original definition based on the <span class="math notranslate nohighlight">\(\epsilon-\delta\)</span> method.</p>
+<p><strong>Examples</strong></p>
+<ol class="arabic">
+<li><p>Constant function <span class="math notranslate nohighlight">\(f(x)=c\)</span> for <span class="math notranslate nohighlight">\(x \in \mathbb{R}\)</span>.  Intuitively, we know it is continuous. We prove it based on the last definition. We need to consider two groups of open sets.   If an open set <span class="math notranslate nohighlight">\(U\)</span> contains <span class="math notranslate nohighlight">\(c\)</span>, then <span class="math notranslate nohighlight">\(f^{-1}(U) = \mathbb{R}\)</span>  which is open.  If an open set <span class="math notranslate nohighlight">\(U\)</span> does not include <span class="math notranslate nohighlight">\(c\)</span>, then <span class="math notranslate nohighlight">\(f^{-1}(U) = \emptyset\)</span> which is open as well.  Hence, by definition, the map is continuous.</p></li>
+<li><p>A linear function <span class="math notranslate nohighlight">\(f(x) = x\)</span> for <span class="math notranslate nohighlight">\(x \in \mathbb{R}\)</span>.  Again we intuitively know it continuous.  Since this is identity map, that is <span class="math notranslate nohighlight">\(x \rightarrow x\)</span>, for any open set <span class="math notranslate nohighlight">\(U \in \mathbb{R}\)</span>,  <span class="math notranslate nohighlight">\(f^{-1}(U) = U\)</span>.  Hence the preimage is open. This proves the function is continuous.</p></li>
+<li><p>The Heaviside function is often defined as</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}H(x) = \begin{cases} 0 &amp; \text{if } x &lt; 0 \\ 1 &amp; \text{if } x &gt; 0\end{cases}\end{split}\]</div>
+<p>If the function is a map from <span class="math notranslate nohighlight">\(\mathbb{R}\)</span> to <span class="math notranslate nohighlight">\(\mathbb{R}\)</span>, then we need to define its value at <span class="math notranslate nohighlight">\(x=0\)</span>.  The value depends on the applications. The popular choices are</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(H(0) = 1\)</span></p></li>
+</ul>
+</li>
+</ol>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(H(0)  = 0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(H(0)= 1/2\)</span></p></li>
+</ul>
+<p>In any case, the function seems discontinuous based on our visual intuition.  Let us check it using the precise mathematical definition for the first choice.</p>
+<p>We consider four open sets:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(U\)</span> containing neither 0 nor 1:  <span class="math notranslate nohighlight">\(H^{-1}(U) = \emptyset\)</span>, which is open.</p></li>
+<li><p><span class="math notranslate nohighlight">\(U\)</span> containing both 0 and 1:  <span class="math notranslate nohighlight">\(H^{-1}(U) = (-\infty,\infty)=\mathbb{R}\)</span>, which is open</p></li>
+<li><p><span class="math notranslate nohighlight">\(U\)</span> containing 0 but not 1: <span class="math notranslate nohighlight">\(H^{-1}(U)=(-\infty,0)\)</span>, which is open.</p></li>
+<li><p><span class="math notranslate nohighlight">\(U\)</span> containing 1 but not 0: <span class="math notranslate nohighlight">\(H^{-1}(U) = [0,\infty)\)</span>, which is NOT open!</p></li>
+</ul>
+<p>The last case indicates that the function is discontinuous as we expected.  Notice that <span class="math notranslate nohighlight">\([0,\infty)\)</span> is a subset of <span class="math notranslate nohighlight">\(\mathbb{R}\)</span> but not in the Euclidean topological space.</p>
+<p>In many physics applications, the function value at <span class="math notranslate nohighlight">\(x=0\)</span> is often left undefined since the value at a single point does not affect physics.  It turns out that removing <span class="math notranslate nohighlight">\(x=0\)</span> from the topology makes the function continuous.  Now we consider <span class="math notranslate nohighlight">\(H\)</span> as a map from <span class="math notranslate nohighlight">\(\mathbb{R}\setminus0\)</span> to <span class="math notranslate nohighlight">\(\mathbb{R}\)</span>.  We exclude any open interval containing <span class="math notranslate nohighlight">\(0\)</span> from the Euclidean topology.  Hence, this is not a map from the standard Euclidean space to <span class="math notranslate nohighlight">\(\mathbb{R}\)</span>.   As we show in the next subsection, the definition of continuous function based on the preimage can be extended to beyond the standard Euclidean space.   The preimages are:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(U\)</span> containing neither 0 nor 1:  <span class="math notranslate nohighlight">\(H^{-1}(U) = \emptyset\)</span>, which is open.</p></li>
+<li><p><span class="math notranslate nohighlight">\(U\)</span> containing both 0 and 1:  <span class="math notranslate nohighlight">\(H^{-1}(U)=\mathbb{R}\setminus 0\)</span>, which is open.</p></li>
+<li><p><span class="math notranslate nohighlight">\(U\)</span> containing 0 but not 1: <span class="math notranslate nohighlight">\(H^{-1}(U)=(-\infty,0)\)</span>, which is open.</p></li>
+<li><p><span class="math notranslate nohighlight">\(U\)</span> containing 1 but not 0: <span class="math notranslate nohighlight">\(H^{-1}(U) = (0,\infty)\)</span>, which is open.</p></li>
+</ul>
+<p>Since all preimages are open, the function is continuous!   This is more convenient than having a particular value at <span class="math notranslate nohighlight">\(x=0\)</span>.</p>
+</section>
+<section id="general-continuous-maps">
+<h2><span class="section-number">2.2.2. </span>General continuous maps<a class="headerlink" href="#general-continuous-maps" title="Link to this heading">#</a></h2>
+<p>We consider a map from one topological space <span class="math notranslate nohighlight">\((X,\mathcal{T}_X)\)</span> to another topological space <span class="math notranslate nohighlight">\((Y,\mathcal{T}_Y)\)</span>.  In many literature, in particular in physics literature, a map is defined as <span class="math notranslate nohighlight">\(f: X \rightarrow Y\)</span> without specifying topologies.    They are meant to be a map from one topological space to another.  When it is obvious or arbitrary a topology is not specified. In physics, topologies are uniquely fixed by various physical requirements in the most cases.  Physicists often  think it is obvious but only experienced theoreticians can say so.  In this lecture note,  we shall be more careful about the topology we work with.</p>
+<p>A map <span class="math notranslate nohighlight">\(f: X \rightarrow Y\)</span> means that if <span class="math notranslate nohighlight">\(U\)</span> is an open set in <span class="math notranslate nohighlight">\(\mathcal{T}_X\)</span>, then <span class="math notranslate nohighlight">\(f(U)\)</span> is an open set in <span class="math notranslate nohighlight">\(\mathcal{T}_Y\)</span>. In a compact form  if <span class="math notranslate nohighlight">\(U \subseteq \mathcal{T_X}\)</span>, then <span class="math notranslate nohighlight">\(f(U) \subseteq \mathcal{T_Y}\)</span>.   The inverse is defined for an open set <span class="math notranslate nohighlight">\(V \in \mathcal{T}_Y\)</span>,</p>
+<div class="math notranslate nohighlight" id="equation-eq-preimage-on-x">
+<span class="eqno">(2.2)<a class="headerlink" href="#equation-eq-preimage-on-x" title="Link to this equation">#</a></span>\[f^{-1}(V) = \{p \in \mathcal{T}_X ~|~ f(p) \in V\}\]</div>
+<p>where  <span class="math notranslate nohighlight">\(p\)</span> is a point in a general topological space <span class="math notranslate nohighlight">\(X\)</span>.  <span class="math notranslate nohighlight">\(f^{-1}(V)\)</span> is also called a preimage of <span class="math notranslate nohighlight">\(V\)</span>.</p>
+<div class="proof definition admonition" id="continuous-map">
+<p class="admonition-title"><span class="caption-number">Definition 2.6 </span></p>
+<section class="definition-content" id="proof-content">
+<p>A map <span class="math notranslate nohighlight">\(f\)</span> from a topological space <span class="math notranslate nohighlight">\((X,\mathcal{T}_X)\)</span> to another topological space <span class="math notranslate nohighlight">\((Y,\mathcal{T}_Y)\)</span> is continuous if <span class="math notranslate nohighlight">\(f^{-1}(V)\)</span> for an open set <span class="math notranslate nohighlight">\(V \subseteq T_y\)</span> is also open.</p>
+</section>
+</div><p>This definition is a starting point of coordinate free approach.
+A real function is a map from a topological space <span class="math notranslate nohighlight">\((X,\mathcal{T})\)</span> to the Eucleadian topological space <span class="math notranslate nohighlight">\(\mathbb{R}\)</span>, which can be considered   as a coordinate free description of a scalar field such as temperature distribution on a curved space.</p>
+<p>Many functions used in physics are not just continuous.  They are smooth.  But what does <em>smooth</em> mean in courved space?   We need the derivative of functions to define smoothness but we don’t know how to calculate derivative on curved spaces.</p>
+</section>
+<section id="smooth-maps">
+<h2><span class="section-number">2.2.3. </span>Smooth maps<a class="headerlink" href="#smooth-maps" title="Link to this heading">#</a></h2>
+<section id="mathbb-c-infty-mathcal-m-algebra">
+<h3><span class="math notranslate nohighlight">\(\mathbb{C}^\infty (\mathcal{M})\)</span> Algebra<a class="headerlink" href="#mathbb-c-infty-mathcal-m-algebra" title="Link to this heading">#</a></h3>
+<p>In the algebra of <span class="math notranslate nohighlight">\(\mathbb{C}^\infty (\mathcal{M})\)</span>, there are three type of operation pointwise addition and multiplication, and multiplication by real numbers. They are They satisfy the following axioms:</p>
+<div class="proof axiom admonition" id="axiom-algebra-smooth-functions">
+<p class="admonition-title"><span class="caption-number">Axiom 2.1 </span></p>
+<section class="axiom-content" id="proof-content">
+<p>For <span class="math notranslate nohighlight">\(f, g, h \in \mathbb{C}^\infty (\mathcal{M})\)</span> and <span class="math notranslate nohighlight">\(\alpha, \beta \in \mathbb{R}\)</span>,</p>
+<p><strong>Axtioms for addition and multiplication axioms</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-right"><p>types</p></th>
+<th class="head text-center"><p>rules</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-right"><p>closure</p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(f+g \in \mathbb{C}^\infty (\mathcal{M})\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>closure</p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(fg \in \mathbb{C}^\infty (\mathcal{M})\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>commutativity</p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(f + g = g + f\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>commutativity</p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(fg = gf\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>associativity</p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(f + (g+h) = (f+g) + h\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>associativity</p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(f (gh) = (fg) h\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>distributivity</p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(f (g+h) = fg + fh\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>distributivity</p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\((f+g) h = fh + gh\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Axions for multiplication by real numbers</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-right"><p>types</p></th>
+<th class="head text-center"><p>rules</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-right"><p>closure</p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\alpha f  \in \mathbb{C}^\infty (\mathcal{M})\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>identity</p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(1 f = f\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>associativity</p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\alpha (\beta f) = (\alpha \beta) f\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>distributivity</p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\alpha(f+g) = \alpha g + \alpha h\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>distributivity</p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\((\alpha + \beta) f = \alpha f + \beta f\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</div></section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./topology"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="topology.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">2.1. </span>Topology and open sets</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../manifolds/intro.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Smooth Manifolds</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#continuous-functions-on-the-euclidean-space">2.2.1. Continuous functions on the Euclidean space</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-continuous-maps">2.2.2. General continuous maps</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#smooth-maps">2.2.3. Smooth maps</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mathbb-c-infty-mathcal-m-algebra"><span class="math notranslate nohighlight">\(\mathbb{C}^\infty (\mathcal{M})\)</span> Algebra</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Ryoichi Kawai
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025 Ryoichi Kawai. All rights reserved..
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

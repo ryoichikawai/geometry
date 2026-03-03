@@ -1,0 +1,581 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>4.2. Vector fields in general manifolds &#8212; Introduction to Topology and Manifolds for Physics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css?v=b4b7a797" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'vector/vector-fields';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4.3. Tangent vectors" href="tangent-vectors.html" />
+    <link rel="prev" title="4.1. Vectors in the Euclidean spaces" href="euclidean-vectors.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../cover.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/me-tiny.png" class="logo__image only-light" alt="Introduction to Topology and Manifolds for Physics - Home"/>
+    <script>document.write(`<img src="../_static/me-tiny.png" class="logo__image only-dark" alt="Introduction to Topology and Manifolds for Physics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../cover.html">
+                    Topology and Manifolds
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../aboutme.html">About Author</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preface.html">Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/intro.html">Introduction</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Differential Geometry</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../curved-spaces/intro.html">1. What are curved spaces?</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../curved-spaces/non-euclidean.html">1.1. Non-Euclidean spaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../curved-spaces/embedded-model.html">1.2. Embedded models</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../topology/intro.html">2. Topological Space</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../topology/topology.html">2.1. Topology and open sets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topology/functions.html">2.2. Continuous functions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../manifolds/intro.html">3. Smooth Manifolds</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">4. Vector Fields</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="euclidean-vectors.html">4.1. Vectors in the Euclidean spaces</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">4.2. Vector fields in general manifolds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tangent-vectors.html">4.3. Tangent vectors</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../forms/intro.html">5. Differentials Forms</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../forms/1-forms.html">5.1. 1-forms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forms/pairing.html">5.2. Duarity paring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forms/cotangent-vectors.html">5.3. Cotangent Vectors</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pushpull/intro.html">6. Pullback and pushfoward</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pushpull/pull-function.html">6.1. Pullback of Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pushpull/push-vector.html">6.2. Pushforward of tangent vectors</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/vector/vector-fields.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Vector fields in general manifolds</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#expressions-of-vector-fields-on-a-chart">4.2.1. Expressions of vector fields on a chart</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition">Definition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uniqueness-of-the-components">Uniqueness of the components</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zero-vector">Zero vector</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basis-vectors">Basis vectors</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="vector-fields-in-general-manifolds">
+<span id="sec-def-vector-fields"></span><h1><span class="section-number">4.2. </span>Vector fields in general manifolds<a class="headerlink" href="#vector-fields-in-general-manifolds" title="Link to this heading">#</a></h1>
+<p>Vectors in the Euclidean spaces are defined with coordinates.  In fact, neither direction nor magnitude can be defined without usual coordinate systems with the Euclidean metric.  Mathematicians were struggling to develop a definition of vector fields in general manifolds.  The final formalization  was completed about 80 years ago and universally accepted during 1960s.  Since then, there have been no major change.  Theoretical physicists have quickly adopted it.</p>
+<p>Unfortunately, the general definition of vector fields is very abstract and it is difficult to connect it to physics until we learn advanced physics such as the Einstein’s general theory of relativity and quantum field theory.  On the other hand, without the mathematical tools for curved spaces, it would be difficult to learn such physics.  We ave a chicken and egg situation.
+In this section, we introduce the formal definition and try to understand it.</p>
+<p>On a manifold <span class="math notranslate nohighlight">\(M\)</span>, a vector field <span class="math notranslate nohighlight">\(v\)</span> is a map from <span class="math notranslate nohighlight">\(\mathbb{C}^\infty(M)\)</span>  to <span class="math notranslate nohighlight">\(\mathbb{C}^\infty(M)\)</span>.  That means the vector field <span class="math notranslate nohighlight">\(v\)</span> takes a smooth function <span class="math notranslate nohighlight">\(f \in \mathbb{C}^\infty(M)\)</span> as an input.  The output <span class="math notranslate nohighlight">\(v(f)\)</span> is also a smooth function.  Recall that a function <span class="math notranslate nohighlight">\(f\)</span> on <span class="math notranslate nohighlight">\(M\)</span> is a map <span class="math notranslate nohighlight">\(f : M \rightarrow \mathbb{R}\)</span>.  That means <span class="math notranslate nohighlight">\(f\)</span> take a point <span class="math notranslate nohighlight">\(p\)</span> on <span class="math notranslate nohighlight">\(M\)</span> and outputs a real number.  In words, <span class="math notranslate nohighlight">\(f\)</span> is a real scalar field.  We can say that a vector field takes a scalar field and outputs a scalar field.  How come such a map is a vector field.  It is totally different from the vector field we  know of.  Does it have components like a vector in the Euclidean space?  Yes, it does but we cannot see it on the manifold since the components need coordinates. The connection between the abstract definition and actual components can be established through a chart.  We will do it later.</p>
+<p>Not every map from <span class="math notranslate nohighlight">\(\mathbb{C}^\infty(M)\)</span>  to <span class="math notranslate nohighlight">\(\mathbb{C}^\infty(M)\)</span> is a vector field.  WE need additional requirement.  Recall that functions in <span class="math notranslate nohighlight">\(\mathbb{C}^\infty(M)\)</span> follows the algebra defined in <a class="reference internal" href="../topology/functions.html#axiom-algebra-smooth-functions">Axiom 2.1</a>.  Vector fields must be consistent with the algebra, that means we must define how vector fields act on addition <span class="math notranslate nohighlight">\(f+g\)</span>, multiplication <span class="math notranslate nohighlight">\(fg\)</span>, and multiplication by real numbers <span class="math notranslate nohighlight">\(\alpha f\)</span>.</p>
+<div class="proof definition admonition" id="def-vector-field">
+<p class="admonition-title"><span class="caption-number">Definition 4.2 </span></p>
+<section class="definition-content" id="proof-content">
+<p>A map <span class="math notranslate nohighlight">\(v: \mathbb{C}^\infty(\mathcal{M}) \rightarrow \mathbb{C}^\infty(\mathcal{M})\)</span> is a vector field if the following properties are satisfied:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(v(f+g) = v(f) + v(g)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(v(\alpha f) = \alpha v(f)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(v(fg) = v(f) g + f v(g)\)</span></p></li>
+</ul>
+</section>
+</div><p>The three linearity conditions and Leibniz law make the map a vector field.  The linearity  essentially says that the vector field <span class="math notranslate nohighlight">\(v\)</span> does not depend on the choice of the function <span class="math notranslate nohighlight">\(f\)</span>.  <span class="math notranslate nohighlight">\(v(f)\)</span> and <span class="math notranslate nohighlight">\(v(g)\)</span> represent the same vector field.  We will come back to this issue  later.</p>
+<p>There must be addition and scalar multiplication.</p>
+<div class="proof definition admonition" id="def-addition-scalar-muliplication">
+<p class="admonition-title"><span class="caption-number">Definition 4.3 </span> (Addition and scalar multiplication of vector fields)</p>
+<section class="definition-content" id="proof-content">
+<p>Let  <span class="math notranslate nohighlight">\(\mathcal{V}(M)\)</span> denotes the set of all vector fields on <span class="math notranslate nohighlight">\(M\)</span>.
+For <span class="math notranslate nohighlight">\(v, w \in \mathcal{V}\)</span>  and <span class="math notranslate nohighlight">\(f, g \in \mathbb{C}^\infty(M)\)</span>, addition and scalar multiplication are defined as follows:</p>
+<p><strong>addition</strong></p>
+<div class="math notranslate nohighlight" id="equation-eq-vector-field-addition">
+<span class="eqno">(4.1)<a class="headerlink" href="#equation-eq-vector-field-addition" title="Link to this equation">#</a></span>\[(v+w)(f) = v(f) + w(f)\]</div>
+<p><strong>scalar multiplication</strong></p>
+<div class="math notranslate nohighlight" id="equation-eq-vector-field-scalar-nultiple">
+<span class="eqno">(4.2)<a class="headerlink" href="#equation-eq-vector-field-scalar-nultiple" title="Link to this equation">#</a></span>\[(gv)(f) = g v(f)\]</div>
+</section>
+</div><p>Note that <span class="math notranslate nohighlight">\(v(f)\)</span> and <span class="math notranslate nohighlight">\(w(f)\)</span> are acting on the same function but they are different vector fields.
+Now, we can show that the vector fields defined above satify the axioms of vectors.</p>
+<p>The output of <span class="math notranslate nohighlight">\(v(f)\)</span> is a function in the same manifold as the input.  Hence, <span class="math notranslate nohighlight">\(v(f)\)</span> follows the same algebra given in <a class="reference internal" href="../topology/functions.html#axiom-algebra-smooth-functions">Axiom 2.1</a>.  Using it, the addition and the scalar multiplication satisfy the axiom of vectors given in <a class="reference internal" href="euclidean-vectors.html#axiom:vector-space">Axiom 4.1</a>.</p>
+<section id="expressions-of-vector-fields-on-a-chart">
+<h2><span class="section-number">4.2.1. </span>Expressions of vector fields on a chart<a class="headerlink" href="#expressions-of-vector-fields-on-a-chart" title="Link to this heading">#</a></h2>
+<p>We have just defined vector fields on manifolds but we don’t know how to evaluate it.   Since we practically know calculus only on the Euclidean space, we must cast the vector field <span class="math notranslate nohighlight">\(v(f)\)</span> on a Euclidean space through a chart.</p>
+<section id="definition">
+<h3>Definition<a class="headerlink" href="#definition" title="Link to this heading">#</a></h3>
+<div class="proof definition admonition" id="def-vector-field-as-derivation">
+<p class="admonition-title"><span class="caption-number">Definition 4.4 </span></p>
+<section class="definition-content" id="proof-content">
+<p>Consider a chart <span class="math notranslate nohighlight">\(\phi: U \subseteq M \rightarrow \mathbb{R}^n\)</span>. The vector field is expressed with the local coordinates as follows:</p>
+<div class="math notranslate nohighlight" id="equation-eq-vector-field-on-chart">
+<span class="eqno">(4.3)<a class="headerlink" href="#equation-eq-vector-field-on-chart" title="Link to this equation">#</a></span>\[v(f) = v^\mu(x) \partial_\mu f(x)\]</div>
+</section>
+</div><p>where <span class="math notranslate nohighlight">\(x\)</span> is a local coordinate and <span class="math notranslate nohighlight">\(v^\mu(x)\)</span> is a component of the vector field.
+(Note that the Einstein’s summation convention is used)</p>
+</section>
+<section id="uniqueness-of-the-components">
+<h3>Uniqueness of the components<a class="headerlink" href="#uniqueness-of-the-components" title="Link to this heading">#</a></h3>
+<p>The right hand side of the above definition is nothing but a directional derivative in the direction of the vector field.  This definition looks a bit strange.  The resulting function depends on the choice of function <span class="math notranslate nohighlight">\(f\)</span> and thus the components seems also depends on <span class="math notranslate nohighlight">\(f\)</span>.  However, the components are independent from <span class="math notranslate nohighlight">\(f\)</span>.  For any smooth function, we will get the same components as long as the same map <span class="math notranslate nohighlight">\(v\)</span> is used.  This is guaranteed by the linearity condition <span class="math notranslate nohighlight">\(v(f+g) = v(f)+v(g)\)</span>.  Suppose that the components depend on the function, the left hand side of the linearity condition is</p>
+<div class="math notranslate nohighlight" id="equation-eq-vctor-field-linearity-on-chart1">
+<span class="eqno">(4.4)<a class="headerlink" href="#equation-eq-vctor-field-linearity-on-chart1" title="Link to this equation">#</a></span>\[v(f+g) = v^\mu_{f+g} \partial_\mu (f+g) =  v^\mu_{f+g} \partial_\mu f + v^\mu_{f+g} \partial_\mu g\]</div>
+<p>but the right hand side is</p>
+<div class="math notranslate nohighlight" id="equation-eq-vctor-field-linearity-on-chart2">
+<span class="eqno">(4.5)<a class="headerlink" href="#equation-eq-vctor-field-linearity-on-chart2" title="Link to this equation">#</a></span>\[v(f)+v(g) = v^\mu_f \partial_\mu f + v^\mu_g \partial_\mu g\]</div>
+<p>In order to satisfy the linearity for any <span class="math notranslate nohighlight">\(f\)</span> ad <span class="math notranslate nohighlight">\(g\)</span>,  the necessary condition is <span class="math notranslate nohighlight">\(v^\mu_{f+g} = v^\mu_f = v^\mu_g\)</span> , which can be satisfied if and only if <span class="math notranslate nohighlight">\(v^\mu\)</span> does not depend on functions.  Now it is clear that <span class="math notranslate nohighlight">\(v(f)\)</span> and <span class="math notranslate nohighlight">\(v(g)\)</span> are the same vector fields since they share the same components.</p>
+</section>
+<section id="zero-vector">
+<h3>Zero vector<a class="headerlink" href="#zero-vector" title="Link to this heading">#</a></h3>
+<p>In order to satisfy the axioms of vectors, the zero vector must exist.  For constant function <span class="math notranslate nohighlight">\(f=c\)</span>, we have  <span class="math notranslate nohighlight">\(v(f) = 0\)</span>.  Is this the zero vector?  It is not!   This just says that the output function of <span class="math notranslate nohighlight">\(v\)</span> happens to be constant zero.  The zero vector is defined as a vector field whose  components are all zero for any function <span class="math notranslate nohighlight">\(f\)</span>.  We can write is as <span class="math notranslate nohighlight">\(0(f) = 0, \quad \forall f \in \mathbb{C}^\infty(\mathbb{R})\)</span> .</p>
+</section>
+<section id="basis-vectors">
+<h3>Basis vectors<a class="headerlink" href="#basis-vectors" title="Link to this heading">#</a></h3>
+<p>In the above definition of vector fields, the choice of a function <span class="math notranslate nohighlight">\(f\)</span> is not important. Then, the vector field can be written  without <span class="math notranslate nohighlight">\(f\)</span> as <span class="math notranslate nohighlight">\(v = \sum_\mu V^\mu(x) \partial_\mu\)</span> which is an operator that acts on functions.   Comparing it with a regular expression of vector <span class="math notranslate nohighlight">\(V^\mu \hat{e}_\mu\)</span> where <span class="math notranslate nohighlight">\(\hat{e}_\mu\)</span> basis vectors,  <span class="math notranslate nohighlight">\(\partial_\mu\)</span> is playing a role of a basis vector.   Formally, we consider <span class="math notranslate nohighlight">\(\partial_\mu\)</span> as a basis of vector field.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./vector"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="euclidean-vectors.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">4.1. </span>Vectors in the Euclidean spaces</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="tangent-vectors.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">4.3. </span>Tangent vectors</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#expressions-of-vector-fields-on-a-chart">4.2.1. Expressions of vector fields on a chart</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition">Definition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uniqueness-of-the-components">Uniqueness of the components</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zero-vector">Zero vector</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basis-vectors">Basis vectors</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Ryoichi Kawai
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025 Ryoichi Kawai. All rights reserved..
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
