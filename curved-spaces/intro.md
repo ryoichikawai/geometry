@@ -1,6 +1,6 @@
 (ch:what-are-curved-spaces)=
 
-# What are curved spaces?
+# What in non-Euclidean space?
 
 
 
