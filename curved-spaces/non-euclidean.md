@@ -48,3 +48,16 @@ height: 300px
 When two lines perpendicular to the equator mearge at the north pole, forming a triangle as shown in red.  The agnle between the vertical line toward the north pole and the quator is 90$^\circ$.  The sum of all inner angles is larger than 180^\circ$, suggesting that the surface of the sphere is non-Euclidean.
 
 ```
+
+
+
+ However, when we try to draw a triangle on the surface of  of a sphere,  we encounter a difficulty.  We can pick three points with our any problem.  But what is a straight line on the sphere?   Open a world map (a flat map, not a globe) and connect New York and Madrid in Spain with a straight line.  These two cities are located on almost the same latitude. So, we might think the path parallel of latitude (the straight line in Figure)  is the shortest path.  Actually it is not.  The curved line in Figure corresponds to the shortest path.
+
+
+```{figure} NY-to-Madrid.jpg
+---
+name: fig:NY-to-Madrid
+---
+Paths from New York to Madrid shwon in a two dimensional map.
+```
+

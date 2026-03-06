@@ -2,7 +2,7 @@
 
 **Introduction**
 
-In {numref}`ch:topological-space`, we define topological spaces based on open sets, which is a necessary mathematical step to construct spaces that physics needs, namely curved spaces discussed in {numref}`ch:what-are-curved-spaces`.   Our understanding of physics is deeply dependent upon mathematics on Euclidean spaces. That is because we feel we are in a flat surface.  Constructing physics on curved space from scratch won't be very attractive since our universe seems not very far from a flat space.  We seek an approach in which Euclidean space is a good approximation inside a small area and the curved space are covered by many patches of flat spaces so that space looks like flat in a neighborhood of  each point. 
+In {numref}`ch:topological-space`, we define topological spaces based on open sets, which is a necessary mathematical step to construct spaces that physics needs, namely curved spaces discussed in {numref}`ch:what-is-nonEuclidean-space`.   Our understanding of physics is deeply dependent upon mathematics on Euclidean spaces. That is because we feel we are in a flat surface.  Constructing physics on curved space from scratch won't be very attractive since our universe seems not very far from a flat space.  We seek an approach in which Euclidean space is a good approximation inside a small area and the curved space are covered by many patches of flat spaces so that space looks like flat in a neighborhood of  each point. 
 
 Based on the above idea, we imagine a topological space in which every point has a neighborhood that looks like a flat space. Such a topological space is called a `manifold`.  For example, a circle is a manifold.  You can imagine a circle approximated by a regular polygon. As the number of edges increases, the polygon approaches a sphere.  In other words, a circle can be approximated with  piecewise straight lines and the straight lines are flat spaces $\mathbb{R}$.
 
@@ -22,5 +22,4 @@ Key points are:
 2. How do we transfer back the result obtained on a chart to a manifold?
 3. How can we make it sure that a function evaluated on two adjacent charts are continuous across the charts?
 
-```
-  
+ ```

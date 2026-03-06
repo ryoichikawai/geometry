@@ -2,49 +2,55 @@
 
 
 
+Euclidean space, also known as flat space,  is most natural to us.  We are using it all time in our daily activities even if we don't know what "Euclidean" means. Certainly we use it in geometry and physics courses but perhaps you never heard it in the classroom.
+
+When we draw a triangle on a sheet of paper, we pick three points on the sheet and connect them with straight lines.  We never question what are the points and what are the straight lines.   We know them intuitively.  Now, we will show that the sheet of paper forms a Euclidean space of two dimensions.  We assume that the paperis infintely large.
+
+We assign a symbol $\mathbb{R}^n$ to the 2-dimensional EUclidean space.  A point $p$ on the paper is an element of the Euclidean space.  Mathematically we write it $p \in \mathbb{R}^2$.
+
 
 Euclidean space of $n$ dimensions ($\mathbb{R}^n$)  is defined as a set of all possible ordered $n$-tuples of real numbers, equipped with two specific operations: vector addition and scalar multiplication. In addition, the space must also have an inner product (dot product), which defines the geometry.
 
 1. **Set**:   
-  For any positive integer, the space consists of points $\bold{x} = (x_1,x_2,\cdots,x_n)$, where each $x_i$ is a real number.  The $n$-tuple $\bold{x}$ is called vector (see the remark below)..
+    For any positive integer, the space consists of points $\mathbf{x} = (x_1,x_2,\cdots,x_n)$, where each $x_i$ is a real number.  The $n$-tuple $\mathbf{x}$ is called vector (see the remark below)..
 
 2. **Vector addition**:  
-  For two vectors $\bold{x} = (x_1,x_2,\cdots,x_n)$ and $\bold{y} = (y_1,y_2,\cdots,y_n)$, the addition is defined as  
+    For two vectors $\mathbf{x} = (x_1,x_2,\cdots,x_n)$ and $\mathbf{y} = (y_1,y_2,\cdots,y_n)$, the addition is defined as  
 
-  $$
-  \bold{x}+ \bold{y} = (x_1+y_1,x_2+y_2, \cdots, x_n+y_n)
-  $$
+$$
+  \mathbf{x}+ \mathbf{y} = (x_1+y_1,x_2+y_2, \cdots, x_n+y_n)
+$$
 
 
 
 3. **Scalar multiplication**:  
-  For a vetor $\bold{x}$ and a real number $\lambda$, the scalar multiplication is defined by
-  $$
-  \lambda \bold{x} = (\lambda x_1, \lambda x_2,  \cdots, \lambda x_n)
-  $$
+    For a vetor $\mathbf{x}$ and a real number $\lambda$, the scalar multiplication is defined by
+$$
+  \lambda \mathbf{x} = (\lambda x_1, \lambda x_2,  \cdots, \lambda x_n)
+$$
 
 
 4. **Inner Product**:
-  For two vectors $\bold{x} = (x_1,x_2,\cdots,x_n)$ and $\bold{y} = (y_1,y_2,\cdots,y_n)$, the inner product  is defined by 
+    For two vectors $\mathbf{x} = (x_1,x_2,\cdots,x_n)$ and $\mathbf{y} = (y_1,y_2,\cdots,y_n)$, the inner product  is defined by 
 
-  $$
-  \bold{x}\cdot\bold{y} = x_1 y_1 + x_2 y_2 + \cdots x_n y_n = \sum_i x_i  y_i
-  $$
+$$
+  \mathbf{x}\cdot\mathbf{y} = x_1 y_1 + x_2 y_2 + \cdots x_n y_n = \sum_i x_i  y_i
+$$
 
 
 5. **Metric (Distance)**:
-  The distance   between two points $\bold{x} = (x_1,x_2,\cdots,x_n)$ and $\bold{y} = (y_1,y_2,\cdots,y_n)$, is given by
+    The distance   between two points $\mathbf{x} = (x_1,x_2,\cdots,x_n)$ and $\mathbf{y} = (y_1,y_2,\cdots,y_n)$, is given by
 
-  $$
-  d(\bold{x},\bold{y}) = \|\bold{x}-\bold{y}\| = \sqrt{\sum_i^n (x_i-y_i)^2}
-  $$
+$$
+  d(\mathbf{x},\mathbf{y}) = \|\mathbf{x}-\mathbf{y}\| = \sqrt{\sum_i^n (x_i-y_i)^2}
+$$
 
 Stating it simply,  the  Euclidean space of $n$ dimensions is the collection of all $n$-component vectors for which the operations of vector addition and multiplication by a scalar are permissible. Moreover, for any two vectors in the space, there is a non-negative number, called the Euclidean distance between the two vectors.
 
 
 _Remarks:_
 
-1. We just called the tuple vector. Is this the same kind of vector that we use in physics?  No!  For mathematicians, tuples are vector. You can draw an arrow from the coordinate origin $(0,0,\cdots,0)$ to $(x_1,x_2,\cdots,x_n)$.  Then, it is a position vector we are familiar with.  So, The origin of vectors based on tuples is fixed at  $(0,0,\cdots,0)$.   For physicists, $x_i$ are coordinates.  Let us introduce basis vectors $\mathbb{e}_1, \mathbb{e}_2, \cdots,\mathbb{e}_n$.  Then, $\bold{x}=x_1 \mathbb{e}_1 + x_2 \mathbb{e}_2 + \cdots x_n \mathbb{e}_n$, which makes a sense for us.  However, we need to define the orthonormal basis vectors.   They are just tuples such as $\mathbb{e}_1 = (1, 0,\cdots,0)$.  At the end, we go back to the original tuple. On the other hand, in physics a vector has magnitude and direction.  The origin of a vector can be anywhere in the space.  However, it must satisfy a specific transformation law. If you rotate your coordinate axes, the components of a physical vector must change in a specific way to ensure the direction still points in the same physical direction. We will define physical vectors later.
+1. We just called the tuple vector. Is this the same kind of vector that we use in physics?  No!  For mathematicians, tuples are vector. You can draw an arrow from the coordinate origin $(0,0,\cdots,0)$ to $(x_1,x_2,\cdots,x_n)$.  Then, it is a position vector we are familiar with.  So, The origin of vectors based on tuples is fixed at  $(0,0,\cdots,0)$.   For physicists, $x_i$ are coordinates.  Let us introduce basis vectors $\mathbb{e}_1, \mathbb{e}_2, \cdots,\mathbb{e}_n$.  Then, $\mathbf{x}=x_1 \mathbb{e}_1 + x_2 \mathbb{e}_2 + \cdots x_n \mathbb{e}_n$, which makes a sense for us.  However, we need to define the orthonormal basis vectors.   They are just tuples such as $\mathbb{e}_1 = (1, 0,\cdots,0)$.  At the end, we go back to the original tuple. On the other hand, in physics a vector has magnitude and direction.  The origin of a vector can be anywhere in the space.  However, it must satisfy a specific transformation law. If you rotate your coordinate axes, the components of a physical vector must change in a specific way to ensure the direction still points in the same physical direction. We will define physical vectors later.
 
 2. There is a way to avoid the use of the fixed origin.  A rigorous definition of Euclidean space as an 
 
@@ -58,7 +64,7 @@ _Remarks:_
    
    1. **Symmetry**: $\langle u, v \rangle = \langle v,u \rangle$.
    2. **Linearity:** $\langle a u + b v, w \rangle = a \langle u,w \rangle + b \langle v, w \rangle$
-   3. **Positive Definiteness:** $\langle u, u \rangle \ge 0$ and $\langle u, u \rangle = 0$ if and only if $v = \bold{0}$. 
+   3. **Positive Definiteness:** $\langle u, u \rangle \ge 0$ and $\langle u, u \rangle = 0$ if and only if $v = \mathbf{0}$. 
 
 Using these axioms, we define the geometry of Euclidean space:
 
@@ -75,7 +81,7 @@ Using these axioms, we define the geometry of Euclidean space:
 
 ## Euclidean geometry
 
-Inside the Euclidean space, we can construct a two dimensional subspace or a plane.  For two vectors $\bold{x}$ and $\bold{y}$,  we can construct vectors $\bold{q} = a \bold{x}+b\bold{y}$ where $a$ amd $b$ are real numbers. Expressing it as 2-tuple $(a,b)$,  $\bold{q}$ can be considered as 2-dimentional vector.  The subspace consisting of all $(a,b)$ forms a plane.  On any such a Euclidean plane, the following axioms hold.
+Inside the Euclidean space, we can construct a two dimensional subspace or a plane.  For two vectors $\mathbf{x}$ and $\mathbf{y}$,  we can construct vectors $\mathbf{q} = a \mathbf{x}+b\mathbf{y}$ where $a$ amd $b$ are real numbers. Expressing it as 2-tuple $(a,b)$,  $\mathbf{q}$ can be considered as 2-dimentional vector.  The subspace consisting of all $(a,b)$ forms a plane.  On any such a Euclidean plane, the following axioms hold.
 
 1. A straight line can be drawn between any two points.
 2. Any straight line segment can be extended indefinitely in a straight line.
